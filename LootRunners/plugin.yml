@@ -1,0 +1,10 @@
+name: LootRunners
+main: sunfury.plugin.lootrunners.Main
+version: 1.0
+description: LootRunners minigame for the Sunfury server.
+authors: [TumbaBit, Matei301]
+commands:
+    lootrunners:
+        description: All LootRunner commands.
+        usage: Use &6/lr help&r for help
+        aliases: ['/lt', '/loot']

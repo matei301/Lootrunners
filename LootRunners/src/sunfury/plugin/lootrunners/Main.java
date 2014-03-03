@@ -1,10 +1,13 @@
 package sunfury.plugin.lootrunners;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.ArrayList;
 
 public class Main extends JavaPlugin {
     //Makes Main class available from all other classes
@@ -12,6 +15,8 @@ public class Main extends JavaPlugin {
     public static Main getInstance() {
         return instance;
     }
+
+    private ArrayList<Player> chestSetters = new ArrayList <Player> ();
 
     public void onEnable() {
         FileConfiguration config = getConfig();
@@ -34,8 +39,18 @@ public class Main extends JavaPlugin {
             if (player.hasPermission("lootrunners.commands")) {
                 if (args.length == 0) {
 
-                } else if (args[0].equals("")) {
-
+                } else if (args[0].equals("chest")) {
+                    if (player.hasPermission("lootrunners.mapmaker")) {
+                        if (chestSetters.contains(player)) {
+                            player.sendMessage("Chest Setting toggled " + ChatColor.RED + "OFF");
+                            chestSetters.remove(player);
+                        } else {
+                            player.sendMessage("Chest Setting toggled " + ChatColor.GREEN + "ON");
+                            chestSetters.add(player);
+                        }
+                    } else {
+                        player.sendMessage(ChatColor.RED + "You don't have permission to do that!");
+                    }
                 } else {
                     player.sendMessage("Syntax error!");
                 }

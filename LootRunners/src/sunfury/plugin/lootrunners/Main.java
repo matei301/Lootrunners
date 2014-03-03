@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Main extends JavaPlugin {
     //Makes Main class available from all other classes
@@ -16,7 +17,11 @@ public class Main extends JavaPlugin {
         return instance;
     }
 
-    private ArrayList<Player> chestSetters = new ArrayList <Player> ();
+    private HashMap<Player, Integer> chestSetters = new HashMap<Player, Integer> ();
+
+    public HashMap<Player, Integer> getChestSetters() {
+        return chestSetters;
+    }
 
     public void onEnable() {
         FileConfiguration config = getConfig();
@@ -38,21 +43,21 @@ public class Main extends JavaPlugin {
         if (command.getName().equalsIgnoreCase("lr") || command.getName().equalsIgnoreCase("lootrunners")) {
             if (player.hasPermission("lootrunners.commands")) {
                 if (args.length == 0) {
-
+                    player.sendMessage(ChatColor.RED + "Syntax error!");
                 } else if (args[0].equals("chest")) {
                     if (player.hasPermission("lootrunners.mapmaker")) {
-                        if (chestSetters.contains(player)) {
+                        if (chestSetters.containsKey(player)) {
                             player.sendMessage("Chest Setting toggled " + ChatColor.RED + "OFF");
                             chestSetters.remove(player);
                         } else {
                             player.sendMessage("Chest Setting toggled " + ChatColor.GREEN + "ON");
-                            chestSetters.add(player);
+                            chestSetters.put(player, Integer.parseInt(args[1]));
                         }
                     } else {
                         player.sendMessage(ChatColor.RED + "You don't have permission to do that!");
                     }
                 } else {
-                    player.sendMessage("Syntax error!");
+                    player.sendMessage(ChatColor.RED + "Syntax error!");
                 }
             }
         }

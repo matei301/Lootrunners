@@ -13,30 +13,4 @@ LootRunners:
             GreSpawn: 0.0, 0.0, 0.0, 0.0, 0.0
             YelSpawn: 0.0, 0.0, 0.0, 0.0, 0.0
             Chests: []
-        Template2:
-            MapName: Template2
-            MinPlayers: 8
-            MaxPlayers: 16
-            VipPlayers: 2
-            World: world
-            Time: 240
-            Lobby: 0.0, 0.0, 0.0, 0.0, 0.0
-            RedSpawn: 0.0, 0.0, 0.0, 0.0, 0.0
-            BluSpawn: 0.0, 0.0, 0.0, 0.0, 0.0
-            GreSpawn: 0.0, 0.0, 0.0, 0.0, 0.0
-            YelSpawn: 0.0, 0.0, 0.0, 0.0, 0.0
-            Chests: []
-        Template3:
-            MapName: Template3
-            MinPlayers: 8
-            MaxPlayers: 16
-            VipPlayers: 2
-            World: world
-            Time: 240
-            Lobby: 0.0, 0.0, 0.0, 0.0, 0.0
-            RedSpawn: 0.0, 0.0, 0.0, 0.0, 0.0
-            BluSpawn: 0.0, 0.0, 0.0, 0.0, 0.0
-            GreSpawn: 0.0, 0.0, 0.0, 0.0, 0.0
-            YelSpawn: 0.0, 0.0, 0.0, 0.0, 0.0
-            Chests: []
     Arenas: []
